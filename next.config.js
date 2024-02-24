@@ -20,9 +20,7 @@ const nextConfig = withPWA({
   reactStrictMode: true,
   swcMinify: true,
   // trailingSlash: true,
-  compiler: {
-    removeConsole: true,
-  },
+
   ...nextTranslate(),
 });
 

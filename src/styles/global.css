@@ -2,10 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@400;700&family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&family=Noto+Sans+Myanmar:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 @layer base {
-    html {
-        font-family:'Poppins', 'Noto Sans Myanmar', system-ui, sans-serif;
-    }
+  html {
+    font-family: 'Kantumruy Pro', 'Noto Sans Myanmar', sans-serif;
+  }
 }

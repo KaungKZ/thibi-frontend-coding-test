@@ -27,24 +27,25 @@ const NavBar = ({ logo, menuItems, bgColor, textColor = 'white' }: INavBar) => {
     <Disclosure as="nav" className={`bg-${bgColor}`}>
       {({ open }) => (
         <>
-          <div className="container px-4 mx-auto sm:px-6 lg:px-8">
-            <div className="flex items-center justify-between h-16">
+          <div className="container px-4 mx-auto sm:px-6 lg:px-8 smmx:!max-w-full">
+            <div className="flex items-center justify-between py-10">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <img 
-                    className="block w-auto h-8 lg:hidden" 
-                    src={logo.mobile} 
-                    alt={logo.alt} 
-                    loading="lazy" />
-                  <img 
-                    className="hidden w-auto h-8 lg:block" 
-                    src={logo.desktop} 
-                    alt={logo.alt} 
-                    loading="lazy" />
+                  <img
+                    className="block w-auto h-8 lg:hidden"
+                    src={logo.mobile}
+                    alt={logo.alt}
+                    loading="lazy"
+                  />
+                  <img
+                    className="hidden w-auto h-8 lg:block"
+                    src={logo.desktop}
+                    alt={logo.alt}
+                    loading="lazy"
+                  />
                 </div>
-                <div className="hidden sm:block sm:ml-6">
+                {/* <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
-                    {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                     {menuItems.map((item) => (
                       <a
                         key={item.id}
@@ -55,7 +56,7 @@ const NavBar = ({ logo, menuItems, bgColor, textColor = 'white' }: INavBar) => {
                       </a>
                     ))}
                   </div>
-                </div>
+                </div> */}
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 {/* Right Menuj */}
@@ -76,8 +77,7 @@ const NavBar = ({ logo, menuItems, bgColor, textColor = 'white' }: INavBar) => {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
+            {/* <div className="px-2 pt-2 pb-3 space-y-1">
               {menuItems.map((item) => (
                 <a
                   key={item.id}
@@ -87,7 +87,7 @@ const NavBar = ({ logo, menuItems, bgColor, textColor = 'white' }: INavBar) => {
                   {item.displayName}
                 </a>
               ))}
-            </div>
+            </div> */}
             <div className="p-4 border-t border-gray-700">
               {/* Right Menu */}
               <LanguageToggle textColor={textColor} />

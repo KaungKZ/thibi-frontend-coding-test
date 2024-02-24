@@ -1,10 +1,9 @@
-//import { locales } from '../../../i18n.json';
 import setLanguage from 'next-translate/setLanguage';
 import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 import layoutConfig from '@/config/layoutConfig';
 
-interface ILanguageToggle  {
+interface ILanguageToggle {
   textColor?: string;
 }
 
@@ -14,7 +13,7 @@ const LanguageToggle = ({ textColor = 'white' }: ILanguageToggle) => {
   const { t } = useTranslation('common');
 
   return (
-    <div className = {`text-${textColor}`}>
+    <div className={`text-${textColor} flex`}>
       {layoutConfig.locales.map((lng, index) => {
         return (
           <div key={index}>
