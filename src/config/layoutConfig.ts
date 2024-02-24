@@ -4,10 +4,10 @@ const layoutConfig = {
     mobile: '/thibi-logo.svg',
     alt: 'Thibi Logo',
   },
-  locales: ["en", "mm"], // Get from i18n.json
-  defaultLocale: "en", // Get from i18n.json
+  locales: ['en', 'mm'], // Get from i18n.json
+  defaultLocale: 'en', // Get from i18n.json
   navBar: {
-    bgColor: 'accent',
+    bgColor: 'dark-grey',
     textColor: 'white',
     menuItems: [
       {

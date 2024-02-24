@@ -44,19 +44,6 @@ const NavBar = ({ logo, menuItems, bgColor, textColor = 'white' }: INavBar) => {
                     loading="lazy"
                   />
                 </div>
-                {/* <div className="hidden sm:block sm:ml-6">
-                  <div className="flex space-x-4">
-                    {menuItems.map((item) => (
-                      <a
-                        key={item.id}
-                        href={item.link}
-                        className={`px-3 py-2 text-sm font-medium text-${textColor} hover:text-gray-300`}
-                      >
-                        {item.displayName}
-                      </a>
-                    ))}
-                  </div>
-                </div> */}
               </div>
               <div className="hidden sm:ml-6 sm:block">
                 {/* Right Menuj */}
@@ -77,17 +64,6 @@ const NavBar = ({ logo, menuItems, bgColor, textColor = 'white' }: INavBar) => {
           </div>
 
           <Disclosure.Panel className="sm:hidden">
-            {/* <div className="px-2 pt-2 pb-3 space-y-1">
-              {menuItems.map((item) => (
-                <a
-                  key={item.id}
-                  href={item.link}
-                  className={`block px-3 py-2 text-base font-medium text-${textColor} hover:text-gray-300`}
-                >
-                  {item.displayName}
-                </a>
-              ))}
-            </div> */}
             <div className="p-4 border-t border-gray-700">
               {/* Right Menu */}
               <LanguageToggle textColor={textColor} />
