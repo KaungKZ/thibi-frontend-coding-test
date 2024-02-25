@@ -13,8 +13,8 @@ export default function Home(props) {
   const [loading, setLoading] = useState(true);
   const { lang } = useTranslation('common');
 
+  // detect current language and return correct results
   function getLangValues() {
-    // detect current language and return correct array
     if (lang === 'en') {
       if (enData.success) {
         return enData.data;
@@ -28,8 +28,8 @@ export default function Home(props) {
     }
   }
 
+  // detect query and set initial results
   useEffect(() => {
-    // detect query and set initial results
     let r = getLangValues()?.filter((d) => {
       return d.attributes.en_term.toLowerCase().startsWith(activeAlphabet);
     });
@@ -49,9 +49,8 @@ export default function Home(props) {
       { scroll: false }
     );
     setLoading(false);
-  }, []);
+  }, [lang]);
 
-  // handles the animation when scrolling to the top
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -63,11 +62,9 @@ export default function Home(props) {
     return arr.sort(function (a, b) {
       var nameA = a.attributes.en_term.toLowerCase(),
         nameB = b.attributes.en_term.toLowerCase();
-      if (nameA < nameB)
-        //sort string ascending
-        return -1;
+      if (nameA < nameB) return -1;
       if (nameA > nameB) return 1;
-      return 0; //default return value (no sorting)
+      return 0;
     });
   }
 
