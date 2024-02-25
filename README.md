@@ -16,10 +16,6 @@ Implementation Checklist
 - ✅ Filter words by alphabets (`en_term`)
 - ✅ Show data according to language (English or Myanmar)
 
-Additional features
-
-- Added text if search results are empty
-
 ## Getting started
 
 First, run the development server:

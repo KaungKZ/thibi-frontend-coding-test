@@ -1,39 +1,14 @@
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import useTranslation from 'next-translate/useTranslation';
 import Layout from '@/components/Layout';
 
-const alphabets = [
-  'a',
-  'b',
-  'c',
-  'd',
-  'e',
-  'f',
-  'g',
-  'h',
-  'i',
-  'j',
-  'k',
-  'l',
-  'm',
-  'n',
-  'o',
-  'p',
-  'q',
-  'r',
-  's',
-  't',
-  'u',
-  'v',
-  'w',
-  'x',
-  'y',
-  'z',
-];
+const alphabets = [...'abcdefghijklmnopqrstuvwxyz'];
 
 export default function Home(props) {
   const { enData, mmData } = props?.data || {};
-  const [activeAlphabet, setActiveAlphabet] = useState('a');
+  const router = useRouter();
+  const [activeAlphabet, setActiveAlphabet] = useState(router.query.searchTerm || 'a');
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
   const { t, lang } = useTranslation('common');
@@ -57,13 +32,23 @@ export default function Home(props) {
     let r = getLangValues()?.filter((d) => {
       return d.attributes.en_term.toLowerCase().startsWith(activeAlphabet);
     });
+
     if (r && r.length > 0) {
       sortByAlphabet(r);
     }
 
     setResults(r);
+
+    router.push(
+      {
+        pathname: router.pathname,
+        query: { ...router.query, searchTerm: activeAlphabet },
+      },
+      undefined,
+      { scroll: false }
+    );
     setLoading(false);
-  }, [enData, mmData]);
+  }, []);
 
   // handles the animation when scrolling to the top
   const scrollToTop = () => {
@@ -87,7 +72,17 @@ export default function Home(props) {
 
   function filterAlphabets(a) {
     setLoading(true);
-
+    // router.replace({
+    //   query: { ...router.query, searchTerm: a },
+    // });
+    router.push(
+      {
+        pathname: router.pathname,
+        query: { ...router.query, searchTerm: a },
+      },
+      undefined,
+      { scroll: false }
+    );
     let r = getLangValues().filter((d) => {
       return d.attributes.en_term.toLowerCase().startsWith(a);
     });
@@ -208,8 +203,8 @@ export const getServerSideProps = async () => {
       const mm = !data[1].data ? { success: false } : { success: true, ...data[1] };
       return [en, mm];
     })
-    .catch((error) => {
-      return [null, null];
+    .catch(() => {
+      return [{ success: false }, { success: false }];
     });
 
   // Pass data to the page via props
