@@ -11,10 +11,10 @@ https://www.figma.com/file/nYpjKMJLit2T8Iu1BkBECM/Thibi-Frontend-Coding-Test?nod
 
 Implementation Checklist
 
-- ✅ Implement layout design according to Figma.
-- ✅ Get Data from API
-- ✅ Filter words by alphabets (`en_term`)
-- ✅ Show data according to language (English or Myanmar)
+✅ Implement layout design according to Figma.
+✅ Get Data from API
+✅ Filter words by alphabets (`en_term`)
+✅ Show data according to language (English or Myanmar)
 
 ## Getting started
 
