@@ -11,7 +11,7 @@ export default function Home(props) {
   const [activeAlphabet, setActiveAlphabet] = useState(router.query.searchTerm || 'a');
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { t, lang } = useTranslation('common');
+  const { lang } = useTranslation('common');
 
   function getLangValues() {
     // detect current language and return correct array
@@ -29,6 +29,7 @@ export default function Home(props) {
   }
 
   useEffect(() => {
+    // detect query and set initial results
     let r = getLangValues()?.filter((d) => {
       return d.attributes.en_term.toLowerCase().startsWith(activeAlphabet);
     });
@@ -72,9 +73,7 @@ export default function Home(props) {
 
   function filterAlphabets(a) {
     setLoading(true);
-    // router.replace({
-    //   query: { ...router.query, searchTerm: a },
-    // });
+
     router.push(
       {
         pathname: router.pathname,
